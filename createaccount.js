@@ -32,11 +32,12 @@ function CreateAccount() {
   }
 
   return (
+  <div className="container">
+    <h1>Create New Account</h1>
     <Card
       bgcolor="grey"
       txtcolor="black"
       status={status}
-      header="Create Account"
       body={
         show ? (
           <>
@@ -83,7 +84,9 @@ function CreateAccount() {
           </>
         ) : (
           <>
-            <h5>Success</h5>
+            <h2 className="success-head">Success! Welcome to BADBANK, we're glad to have you.</h2>
+            <p>You will recieve a confirmation email within the next hour. Please give 24 hours for your new account balance to update. Thank you for choosing BADBANK.</p>
+            <p className="p">Be sure to check out our other types of accounts to get all your finance needs in one place.</p>
             <button type="submit" className="btn btn-light" onClick={clearForm}>
               Add another account
             </button>
@@ -91,5 +94,6 @@ function CreateAccount() {
         )
       }
     />
+  </div>
   );
 }
