@@ -1,0 +1,41 @@
+:root {
+  --main-dark: black;
+  --main-light: white;
+  --accent: grey;
+  --main-accent: red;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; */
+}
+
+.container-fluid {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.navbar-brand {
+  margin-right: 0;
+}
+
+.nav-link {
+  padding-left: 0;
+}
+
+nav {
+  background-color: var(--main-dark);
+  color: var(--main-light);
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--main-accent);
+}
+
+/* need to figure out ACTIVE*/
