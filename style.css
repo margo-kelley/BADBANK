@@ -1,9 +1,9 @@
 :root {
   --main-dark: black;
   --main-light: white;
-  --accent: grey;
   --main-accent: red;
-
+  --accent: grey;
+  --accent-light: #e8e8e8;
 }
 
 * {
@@ -39,3 +39,46 @@ a:hover {
 }
 
 /* need to figure out ACTIVE*/
+
+.container {
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+h1 {
+  padding-bottom: 0;
+  margin-bottom: .2em;
+}
+
+.card-body {
+  padding: 2.5em;
+  background-color: var(--accent-light);
+}
+
+.btn-light {
+  background-color: var(--main-dark);
+  color: var(--main-accent);
+}
+
+.btn-light:hover {
+  background-color: var(--main-light);
+  color: var(--main-accent);
+}
+
+.success-head {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.p {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.nav-link-bal {
+  color: var(--main-accent);
+}
+
+.nav-link-bal:hover {
+  text-decoration: none;
+}
