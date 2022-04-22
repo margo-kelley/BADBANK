@@ -7,9 +7,25 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  /* overflow: hidden; */
+  overflow-x: hidden;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--main-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-accent);
 }
 
 .container-fluid {
@@ -39,20 +55,35 @@ a:hover {
 }
 
 /* need to figure out ACTIVE*/
+/* .active-page {
+  color: var(--main-accent);
+} */
 
 .container {
-  padding-top: 5em;
-  padding-bottom: 5em;
+  padding: 0;
+  margin: 0;
 }
 
-h1 {
-  padding-bottom: 0;
-  margin-bottom: .2em;
+.page-head {
+  text-align: center;
+  font-weight: 800;
+  font-size: 3em;
+  margin-bottom: 0;
+}
+
+.page-subtitle {
+  color: var(--main-accent);
+  text-align: center;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 1.5em;
+  margin-bottom: 3em;
 }
 
 .card-body {
   padding: 2.5em;
   background-color: var(--accent-light);
+  place-content: center;
 }
 
 .btn-light {
@@ -81,4 +112,15 @@ h1 {
 
 .nav-link-bal:hover {
   text-decoration: none;
+}
+
+.container-data {
+  padding: 1em;
+  margin: 1em;
+}
+
+.allData-head {
+  margin-top: 2em;
+  margin-left: 1em;
+  margin-bottom: 1em;
 }
