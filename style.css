@@ -29,16 +29,19 @@
 }
 
 .container-fluid {
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .navbar-brand {
   margin-right: 0;
+  color: var(--main-accent);
 }
 
 .nav-link {
   padding-left: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 nav {
@@ -59,16 +62,20 @@ a:hover {
   color: var(--main-accent);
 } */
 
-.container {
-  padding: 0;
-  margin: 0;
-}
-
 .page-head {
   text-align: center;
   font-weight: 800;
-  font-size: 3em;
+  font-size: 4em;
   margin-bottom: 0;
+  margin-top: 2em;
+}
+
+.header {
+  text-align: center;
+  font-weight: 500;
+  font-size: 2em;
+  margin-bottom: 1em;
+  margin-top: 2em;
 }
 
 .page-subtitle {
@@ -76,8 +83,8 @@ a:hover {
   text-align: center;
   font-weight: 500;
   font-style: italic;
-  font-size: 1.5em;
-  margin-bottom: 3em;
+  font-size: 2em;
+  margin-bottom: 4em;
 }
 
 .card-body {
@@ -96,9 +103,9 @@ a:hover {
   color: var(--main-accent);
 }
 
-.success-head {
-  padding-top: 1em;
-  padding-bottom: 1em;
+h3 {
+  font-style: oblique;
+  padding-top: .5em;
 }
 
 .p {
@@ -112,15 +119,4 @@ a:hover {
 
 .nav-link-bal:hover {
   text-decoration: none;
-}
-
-.container-data {
-  padding: 1em;
-  margin: 1em;
-}
-
-.allData-head {
-  margin-top: 2em;
-  margin-left: 1em;
-  margin-bottom: 1em;
 }

@@ -3,7 +3,7 @@ function NavBar(){
     <>
       <nav className="navbar">
         <div className="container-fluid">
-          <span className="navbar-brand mb-1 h1">BADBANK</span>
+          <span className="navbar-brand mb-1">BADBANK</span>
           <ul className="nav justify-content-start">
             <li className="nav-item">
               <a

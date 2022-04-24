@@ -32,7 +32,7 @@ function CreateAccount() {
   }
 
   return (
-  <div className="container">
+  <div className="container-fluid">
     <h1>Create New Account</h1>
     <Card
       bgcolor="grey"

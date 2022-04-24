@@ -2,11 +2,10 @@ function AllData(){
   const ctx = React.useContext(UserContext);
   return (
     <>
-      <h1 className="allData-head">
-        All User Data:
-        <br />
-      </h1>
-      <div className="container-data">
+    <div className="container-fluid">
+      <p className="header">
+        All User Data
+      </p>
         <div className="row align-items-center">
         <div className="col">
           <div className="card">
@@ -40,7 +39,6 @@ function AllData(){
         </div>
       </div>
       </div>
-      
       <p>{JSON.stringify(ctx)}</p>
     </>
   );

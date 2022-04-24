@@ -31,8 +31,8 @@ function Login(){
   }
 
   return (
-    <div className="container">
-      <h1>Login</h1>
+    <div className="container-fluid">
+      <p className="header">Login</p>
       <Card
         bgcolor="grey"
         txtcolor="black"
@@ -72,7 +72,8 @@ function Login(){
             </>
           ) : (
             <>
-              <h2 className="success-head">Login Successful.</h2>
+              <h3>Login Successful</h3>
+              <br />
               <button type="submit" className="btn btn-light">
                 <a className="nav-link-bal" href="#/balance/">
                   Go to Balance
@@ -81,6 +82,10 @@ function Login(){
             </>
           )
         }
+      />
+      <p>Not a member yet?</p>
+      <p className="header">Create An Account</p>
+      <Card
       />
     </div>
   );
