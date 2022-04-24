@@ -33,7 +33,7 @@ function CreateAccount() {
 
   return (
   <div className="container-fluid">
-    <h1>Create New Account</h1>
+    <h1 className="header">Create New Account</h1>
     <Card
       bgcolor="grey"
       txtcolor="black"
