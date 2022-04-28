@@ -83,10 +83,14 @@ function Login(){
           )
         }
       />
-      <p>Not a member yet?</p>
-      <p className="header">Create An Account</p>
-      <Card
-      />
+      <br/>
+      <p>
+        Not a member yet?
+        <a className="nav-link" href="#/CreateAccount/">
+          {"Create New Account"}
+          
+        </a>
+      </p>
     </div>
   );
 }
