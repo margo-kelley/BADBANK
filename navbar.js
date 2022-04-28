@@ -20,17 +20,6 @@ function NavBar(){
             <li className="nav-item">
               <a
                 className="nav-link"
-                href="#/CreateAccount/"
-                data-bs-toggle="tooltip"
-                data-bs-placement="bottom"
-                title="Create Account"
-              >
-                Create Account
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className="nav-link"
                 href="#/login"
                 data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
@@ -39,6 +28,18 @@ function NavBar(){
                 Login
               </a>
             </li>
+            <li className="nav-item">
+              <a
+                className="nav-link"
+                href="#/CreateAccount/"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                title="Create Account"
+              >
+                Create Account
+              </a>
+            </li>
+            
             <li className="nav-item">
               <a
                 className="nav-link"

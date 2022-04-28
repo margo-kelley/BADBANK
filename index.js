@@ -8,8 +8,8 @@ function Spa() {
       <NavBar/>
       <UserContext.Provider value={{users:[{name:'margo',email:'margo@mit.edu',password:'secret',balance:150}]}}>
         <Route path="/" exact component={Home} />
-        <Route path="/CreateAccount/" component={CreateAccount} />
         <Route path="/login/" component={Login} />
+        <Route path="/CreateAccount/" component={CreateAccount} />
         <Route path="/deposit/" component={Deposit} />
         <Route path="/withdraw/" component={Withdraw} />
         <Route path="/balance/" component={Balance} />
