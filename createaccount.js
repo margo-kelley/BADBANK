@@ -4,6 +4,7 @@ function CreateAccount() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [balance, setBalance] = React.useState(0);
   const ctx = React.useContext(UserContext);
 
   function handleCreate() {
@@ -28,6 +29,7 @@ function CreateAccount() {
     setName("");
     setEmail("");
     setPassword("");
+    setBalance(0);
     setShow(true);
   }
 
@@ -74,6 +76,16 @@ function CreateAccount() {
               onChange={(e) => setPassword(e.currentTarget.value)}
             />
             <br />
+            Balance
+            <br/>
+            <input
+            type="number"
+            className="form-control"
+            id="balance"
+            value={balance}
+            onChange={(e) => setBalance(e.currentTarget.value)}
+            />
+            <br/>
             <button
               type="submit"
               className="btn btn-light"
