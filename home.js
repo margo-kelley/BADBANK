@@ -4,10 +4,6 @@ function Home(){
       <p className="page-head">Welcome to BADBANK</p>
       <p className="page-subtitle">Bad to the Bone</p>
       <Card
-      // bgcolor="white"
-      // txtcolor="black"
-      // title="Welcome to BADBANK"
-      // text="Bad to the bone"
       body={<img src="bank.png" className="rounded mx-auto d-block" alt="Responsive image" />}
     />
     </div>
