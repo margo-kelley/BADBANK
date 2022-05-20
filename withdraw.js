@@ -34,7 +34,7 @@ function Withdraw(){
   return (
     <div>
       <div className="header">Withdraw</div>
-    <Card
+      <Card
       bgcolor="grey"
       txtcolor="black"
       status={status}
@@ -93,5 +93,6 @@ function Withdraw(){
         )
       }
     />
+    </div>
   );
 }
