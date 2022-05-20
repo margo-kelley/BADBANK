@@ -32,6 +32,8 @@ function Withdraw(){
   }
 
   return (
+    <div>
+      <div className="header">Withdraw</div>
     <Card
       bgcolor="grey"
       txtcolor="black"
