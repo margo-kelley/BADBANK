@@ -120,3 +120,7 @@ h3 {
 .nav-link-bal:hover {
   text-decoration: none;
 }
+
+#allData-card {
+  margin: 1em;
+}
