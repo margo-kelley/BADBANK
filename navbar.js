@@ -20,17 +20,6 @@ function NavBar(){
             <li className="nav-item">
               <a
                 className="nav-link"
-                href="#/login"
-                data-bs-toggle="tooltip"
-                data-bs-placement="bottom"
-                title="Login"
-              >
-                Login
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className="nav-link"
                 href="#/CreateAccount/"
                 data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
