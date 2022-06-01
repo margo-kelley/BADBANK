@@ -54,17 +54,6 @@ function NavBar(){
             <li className="nav-item">
               <a
                 className="nav-link"
-                href="#/balance/"
-                data-bs-toggle="tooltip"
-                data-bs-placement="bottom"
-                title="Acount Balances"
-              >
-                Balance
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className="nav-link"
                 href="#/alldata/"
                 data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
