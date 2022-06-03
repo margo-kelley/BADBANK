@@ -5,6 +5,7 @@ function CreateAccount() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [balance, setBalance] = React.useState(0);
+  const [disable, setDisable] = React.useState(false);
   const ctx = React.useContext(UserContext);
 
   function handleCreate() {
@@ -12,19 +13,27 @@ function CreateAccount() {
     if (!validate(name, "name")) return;
     if (!validate(email, "email")) return;
     if (!validate(password, "password")) return;
-    ctx.users.push({ name, email, password, balance: 100 });
+    ctx.users.push({ name, email, password, balance });
     setShow(false);
+
+    // not quite effective--------->
+    React.useEffect(()=>{
+    if(!name && !email && !password) {setDisable(true)}
+    else { setDisable(false)}
+  }, [name, email, password]);
+
   }
 
   function validate(field, label) {
     if (!field) {
-      setStatus("Error: " + label);
+      setStatus("Error: " + label + " required");
       setTimeout(() => setStatus(""), 3000);
       return false;
     }
     return true;
   }
 
+  
   function clearForm() {
     setName("");
     setEmail("");
