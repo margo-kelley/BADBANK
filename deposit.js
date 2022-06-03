@@ -16,26 +16,30 @@ function Deposit(){
   }
 
   return (
+    <>
     <div className="container-fluid">
       <div className="header">Deposit</div>
-      <Card
+        <Card
       bgcolor="grey"
       txtcolor="black"
       status={status}
       body={
         <>
           <label htmlFor="balance">Balance</label>
-          <p>where the # should be</p>
-          <br />
-          <label htmlFor="deposit amount">Deposit Amount</label>
-          <br />
-          <input type="number" className="form-control" id="deposit" min="0" />
-          <br />
+          <div>
+            {ctx.users.map(user => {
+              return (
+              <p id="bal-num" key={user.balance}>{user.balance}</p>
+              )
+            })}
+          </div>
+          <input type="number" className="form-control" id="deposit" min="0" placeholder="Deposit Amount" />
+          <br/>
           <button className=" btn btn-light" onClick={depositCash}>Add $$$</button>
         </>
       }
     />
     </div>
-    
+    </>
   );
 }
