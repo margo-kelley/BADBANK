@@ -124,3 +124,8 @@ h3 {
 #allData-card {
   margin: 1em;
 }
+
+#bal-num {
+  font-size: 2.5em;
+  font-weight: 600;
+}
