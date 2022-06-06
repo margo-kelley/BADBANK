@@ -5,35 +5,26 @@ function AllData(){
     <>
       <div className="container-fluid">
         <p className="header">All User Data</p>
-        {ctx.users.map(user =>{
+       {ctx.users.map((user) => {
           return (
-            <div className="row align-items-center">
-              <div className="col">
-                <div className="card" id="allData-card">
-                  <div className="card-header">USER NAME</div>
-                  <ul className="list-group list-group-flush">
-                    <li className="list-group-item">{user.name}</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="col">
-                <div className="card" id="allData-card">
-                  <div className="card-header">USER EMAIL</div>
-                  <ul className="list-group list-group-flush">
-                    <li className="list-group-item">{user.email}</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="col">
-                <div className="card" id="allData-card">
-                  <div className="card-header">USER PASSWORD</div>
-                  <ul className="list-group list-group-flush">
-                    <li className="list-group-item">{user.password}</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          );
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">NAME</th>
+              <th scope="col">EMAIL</th>
+              <th scope="col">PASSWORD</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              {/* KEY => buggy */}
+              <td key={user.password}>{user.password}</td>
+            </tr>
+          </tbody>
+        </table>
+         )
         })}
       </div>
     </>
