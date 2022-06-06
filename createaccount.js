@@ -5,7 +5,7 @@ function CreateAccount() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [balance, setBalance] = React.useState(0);
-  const [disable, setDisable] = React.useState(false);
+  
   const ctx = React.useContext(UserContext);
 
   function handleCreate() {
@@ -15,31 +15,43 @@ function CreateAccount() {
     if (!validate(password, "password")) return;
     ctx.users.push({ name, email, password, balance });
     setShow(false);
-
-    // not quite effective--------->
-    React.useEffect(()=>{
-    if(!name && !email && !password) {setDisable(true)}
-    else { setDisable(false)}
-  }, [name, email, password]);
-
   }
 
   function validate(field, label) {
     if (!field) {
-      setStatus("Error: " + label + " required");
-      setTimeout(() => setStatus(""), 3000);
+      setStatus("Error: Must enter " + label);
+      setTimeout(() => setStatus(""), 4000);
       return false;
     }
     return true;
   }
 
-  
+  function SubmitButton() {
+    if(name && email && password) {
+      return (
+      <button
+      type="submit"
+      className="btn btn-light"
+      onClick={handleCreate}>Create Account</button>
+    )} else {
+      return (
+        <button type="submit"
+        className="btn btn-light"
+        onClick={handleCreate}
+        disabled>
+          Create Account
+        </button>
+      );
+    }
+  }
+
   function clearForm() {
     setName("");
     setEmail("");
     setPassword("");
     setBalance(0);
     setShow(true);
+    setDisable(true);
   }
 
   return (
@@ -95,13 +107,7 @@ function CreateAccount() {
             onChange={(e) => setBalance(e.currentTarget.value)}
             />
             <br/>
-            <button
-              type="submit"
-              className="btn btn-light"
-              onClick={handleCreate}
-            >
-              Create Account
-            </button>
+            <SubmitButton/>
           </>
         ) : (
           <>
