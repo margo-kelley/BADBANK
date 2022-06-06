@@ -27,7 +27,7 @@ function CreateAccount() {
   }
 
   function SubmitButton() {
-    if(name && email && password) {
+    if(validate) {
       return (
       <button
       type="submit"
