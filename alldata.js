@@ -13,6 +13,7 @@ function AllData(){
               <th scope="col">NAME</th>
               <th scope="col">EMAIL</th>
               <th scope="col">PASSWORD</th>
+              <th scope="col">BALANCE</th>
             </tr>
           </thead>
           <tbody>
@@ -21,6 +22,7 @@ function AllData(){
               <td>{user.email}</td>
               {/* KEY => buggy */}
               <td key={user.password}>{user.password}</td>
+              <td>{user.balance}</td>
             </tr>
           </tbody>
         </table>
