@@ -7,26 +7,14 @@ function AllData(){
         <p className="header">All User Data</p>
        {ctx.users.map((user) => {
           return (
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">NAME</th>
-              <th scope="col">EMAIL</th>
-              <th scope="col">PASSWORD</th>
-              <th scope="col">BALANCE</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              {/* KEY => buggy */}
-              <td key={user.password}>{user.password}</td>
-              <td>{user.balance}</td>
-            </tr>
-          </tbody>
-        </table>
-         )
+            <div className="card">
+              <ul className="list-group list-group-flush">
+                <li key={user} className="list-group-item">
+                  Name: {user.name}, Email: {user.email}, Password: {user.password}
+                </li>
+              </ul>
+            </div>
+          );
         })}
       </div>
     </>
