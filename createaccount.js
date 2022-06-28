@@ -4,8 +4,7 @@ function CreateAccount() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const [balance, setBalance] = React.useState(0);
-  
+
   const ctx = React.useContext(UserContext);
 
   function handleCreate() {
@@ -13,7 +12,7 @@ function CreateAccount() {
     if (!validate(name, "name")) return;
     if (!validate(email, "email")) return;
     if (!validate(password, "password")) return;
-    ctx.users.push({ name, email, password, balance });
+    ctx.users.push({ name, email, password });
     setShow(false);
   }
 
@@ -38,7 +37,7 @@ function CreateAccount() {
         <button type="submit"
         className="btn btn-light"
         onClick={handleCreate}
-        disabled>
+        >
           Create Account
         </button>
       );
@@ -49,9 +48,7 @@ function CreateAccount() {
     setName("");
     setEmail("");
     setPassword("");
-    setBalance(0);
     setShow(true);
-    setDisable(true);
   }
 
   return (
@@ -75,7 +72,7 @@ function CreateAccount() {
               onChange={(e) => setName(e.currentTarget.value)}
             />
             <br />
-            Email address
+            Email
             <br />
             <input
               type="input"
@@ -95,16 +92,6 @@ function CreateAccount() {
               placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.currentTarget.value)}
-            />
-            <br />
-            Balance
-            <br/>
-            <input
-            type="number"
-            className="form-control"
-            id="balance"
-            value={balance}
-            onChange={(e) => setBalance(e.currentTarget.value)}
             />
             <br/>
             <SubmitButton/>
