@@ -1,45 +1,73 @@
-function Deposit(){
-  // const [show, setShow] = React.useState(true);
+function Deposit() {
   const [status, setStatus] = React.useState("");
-  const [balance, setBalance] = React.useState("");
+  const [deposit, setDeposit] = React.useState("");
+  const [balance, setBalance] = React.useState(100);
+  const [disable, setDisable] = React.useState(true);
   const ctx = React.useContext(UserContext);
 
-  function depositCash() {
-    let amount = document.getElementById('deposit').value;
-    console.log(amount);
-    let balance = 100;
-    if (amount > 0) {
-      let deposit = amount + balance;
-      console.log(deposit);
-      return deposit;
-    } return;
-  }
+  // validate deposit amount
+  const validate = (amount) => {
+    if (!amount) {
+      setStatus("Please enter an amount");
+      setDisable(true);
+      return false;
+    }
+    if (amount < 0) {
+      setStatus("Cannot deposit a negative amount");
+      setDisable(true);
+      return false;
+    }
+    return true;
+  };
+
+  // add valid number to balance + update
+  const depositCash = (amount) => {
+    if (!validate(amount)) return;
+    let newBalance = Number(balance) + Number(amount);
+    console.log(newBalance);
+    setBalance(newBalance);
+    setStatus("Success");
+    ctx.users.push(newBalance);
+
+    //reset input, clear success message
+    setDeposit("");
+    setTimeout(() => {
+      setStatus("");
+    }, 2000);
+  };
 
   return (
     <>
-    <div className="container-fluid">
-      <div className="header">Deposit</div>
+      <div className="container-fluid">
+        <div className="header">Deposit</div>
         <Card
-      bgcolor="grey"
-      txtcolor="black"
-      status={status}
-      body={
-        <>
-          <label htmlFor="balance">Balance</label>
-          <div>
-            {ctx.users.map(user => {
-              return (
-              <p id="bal-num" key={user.balance}>{user.balance}</p>
-              )
-            })}
-          </div>
-          <input type="number" className="form-control" id="deposit" min="0" placeholder="Deposit Amount" />
-          <br/>
-          <button className=" btn btn-light" onClick={depositCash}>Add $$$</button>
-        </>
-      }
-    />
-    </div>
+          bgcolor="grey"
+          txtcolor="black"
+          status={status}
+          body={
+            <>
+              <h4>Account Balance: {balance}</h4>
+              <br />
+              <input
+                type="number"
+                className="form-control"
+                id="deposit"
+                placeholder="Deposit Amount"
+                value={deposit}
+                onChange={(e) => setDeposit(e.currentTarget.value)}
+              />
+              <br />
+              <button
+                type="submit"
+                className=" btn btn-light"
+                onClick={() => depositCash(deposit)}
+              >
+                Add $$$
+              </button>
+            </>
+          }
+        />
+      </div>
     </>
   );
 }
