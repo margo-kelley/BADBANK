@@ -12,6 +12,11 @@ function Deposit() {
       setDisable(true);
       return false;
     }
+    if(!Number(amount)) {
+      setStatus("Please enter a valid number");
+      setDisable(true);
+      return false;
+    }
     if (amount < 0) {
       setStatus("Cannot deposit a negative amount");
       setDisable(true);
@@ -46,7 +51,7 @@ function Deposit() {
           status={status}
           body={
             <>
-              <h4>Account Balance: {balance}</h4>
+              <h4>Account Balance: ${balance}</h4>
               <br />
               <input
                 type="number"
@@ -62,7 +67,7 @@ function Deposit() {
                 className=" btn btn-light"
                 onClick={() => depositCash(deposit)}
               >
-                Add $$$
+                Add Cash
               </button>
             </>
           }
