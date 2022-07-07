@@ -1,98 +1,74 @@
-function Withdraw(){
-  const [show, setShow] = React.useState(true);
+function Withdraw() {
   const [status, setStatus] = React.useState("");
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [withdraw, setWithdraw] = React.useState("");
+  const [balance, setBalance] = React.useState(100);
+  const [disable, setDisable] = React.useState(true);
   const ctx = React.useContext(UserContext);
 
-  function handleCreate() {
-    console.log(name, email, password);
-    if (!validate(name, "name")) return;
-    if (!validate(email, "email")) return;
-    if (!validate(password, "password")) return;
-    ctx.users.push({ name, email, password, balance: 100 });
-    setShow(false);
-  }
-
-  function validate(field, label) {
-    if (!field) {
-      setStatus("Error: " + label);
-      setTimeout(() => setStatus(""), 3000);
+  // validate withdraw amount
+  const validate = (amount) => {
+    if (!amount) {
+      setStatus("Please enter an amount");
+      setDisable(true);
+      return false;
+    }
+    if (amount > balance) {
+      setStatus("Withdraw cannot exceed balance");
+      setDisable(true);
       return false;
     }
     return true;
-  }
+  };
 
-  function clearForm() {
-    setName("");
-    setEmail("");
-    setPassword("");
-    setShow(true);
-  }
+  // add valid number to balance + update
+  const withdrawCash = (amount) => {
+    if (!validate(amount)) return;
+    let newBalance = Number(balance) - Number(amount);
+    console.log(newBalance);
+    setBalance(newBalance);
+    setStatus("Success");
+    ctx.users.push(newBalance);
+
+    //reset input, clear success message
+    setWithdraw("");
+    setTimeout(() => {
+      setStatus("");
+    }, 2000);
+  };
 
   return (
-    <div>
-      <div className="header">Withdraw</div>
-      <Card
-      bgcolor="grey"
-      txtcolor="black"
-      status={status}
-      header="WITHDRAW"
-      body={
-        show ? (
-          <>
-            Name
-            <br />
-            <input
-              type="input"
-              className="form-control"
-              id="name"
-              placeholder="Enter name"
-              value={name}
-              onChange={(e) => setName(e.currentTarget.value)}
-            />
-            <br />
-            Email address
-            <br />
-            <input
-              type="input"
-              className="form-control"
-              id="email"
-              placeholder="Enter email"
-              value={email}
-              onChange={(e) => setEmail(e.currentTarget.value)}
-            />
-            <br />
-            Password
-            <br />
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              placeholder="Enter password"
-              value={password}
-              onChange={(e) => setPassword(e.currentTarget.value)}
-            />
-            <br />
-            <button
-              type="submit"
-              className="btn btn-light"
-              onClick={handleCreate}
-            >
-              Create Account
-            </button>
-          </>
-        ) : (
-          <>
-            <h5>Success</h5>
-            <button type="submit" className="btn btn-light" onClick={clearForm}>
-              Add another account
-            </button>
-          </>
-        )
-      }
-    />
-    </div>
+    <>
+      <div className="container-fluid">
+        <div className="header">Withdraw</div>
+        <Card
+          bgcolor="grey"
+          txtcolor="black"
+          status={status}
+          body={
+            <>
+              <h4>Account Balance: ${balance}</h4>
+              <br />
+              <input
+                type="number"
+                className="form-control"
+                id="withdraw"
+                placeholder="Withdraw Amount"
+                min="0"
+                value={withdraw}
+                onChange={(e) => setWithdraw(e.currentTarget.value)}
+              />
+              <br />
+              <button
+                type="submit"
+                className=" btn btn-light"
+                onClick={() => withdrawCash(withdraw)}
+              >
+                Get Cash
+              </button>
+            </>
+          }
+        />
+      </div>
+    </>
   );
 }
