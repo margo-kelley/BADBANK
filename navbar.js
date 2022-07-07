@@ -7,7 +7,7 @@ function NavBar(){
           <ul className="nav justify-content-start">
             <li className="nav-item">
               <a
-                className="nav-link active"
+                className="nav-link"
                 aria-current="page"
                 href="#"
                 data-bs-toggle="tooltip"
@@ -23,7 +23,7 @@ function NavBar(){
                 href="#/CreateAccount/"
                 data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
-                title="Create Account"
+                title="Create An Account"
               >
                 Create Account
               </a>
@@ -35,7 +35,7 @@ function NavBar(){
                 href="#/deposit/"
                 data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
-                title="Deposit Money"
+                title="Deposit Cash"
               >
                 Deposit
               </a>
@@ -46,7 +46,7 @@ function NavBar(){
                 href="#/Withdraw/"
                 data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
-                title="Withdraw Money"
+                title="Withdraw Cash"
               >
                 Withdraw
               </a>
@@ -57,7 +57,7 @@ function NavBar(){
                 href="#/alldata/"
                 data-bs-toggle="tooltip"
                 data-bs-placement="bottom"
-                title="All User/Accounts Data"
+                title="All User Data"
               >
                 All Data
               </a>
