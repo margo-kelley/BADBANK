@@ -4,8 +4,17 @@ function CreateAccount() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-
+  const [disable, setDisable] = React.useState(true);
   const ctx = React.useContext(UserContext);
+
+  const validate = (field, label) => {
+    if (!field) {
+      setStatus("Error: Must enter " + label);
+      setTimeout(() => setStatus(""), 4000);
+      return false;
+    }
+    return true;
+  }
 
   function handleCreate() {
     console.log(name, email, password);
@@ -14,15 +23,6 @@ function CreateAccount() {
     if (!validate(password, "password")) return;
     ctx.users.push({ name, email, password });
     setShow(false);
-  }
-
-  function validate(field, label) {
-    if (!field) {
-      setStatus("Error: Must enter " + label);
-      setTimeout(() => setStatus(""), 4000);
-      return false;
-    }
-    return true;
   }
 
   function SubmitButton() {
@@ -37,6 +37,7 @@ function CreateAccount() {
         <button type="submit"
         className="btn btn-light"
         onClick={handleCreate}
+        setDisable={true}
         >
           Create Account
         </button>
